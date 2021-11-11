@@ -1,29 +1,13 @@
 import React from 'react';
 import { Grid } from '@material-ui/core/';
 import Product from './Product/Product';
+import productsStyles from './productsStyles';
 
-const products = [
-  {
-    id: 1,
-    name: 'Shoes',
-    description: 'Running shoes',
-    price: '$10',
-    image:
-      'https://s3.amazonaws.com/nikeinc/assets/101459/Nike_Doernbecher_Freestyle_What_The_AJ1_34994_re2_rectangle_1600.jpg?1614217330',
-  },
-  {
-    id: 2,
-    name: 'Macbook M1X',
-    description: 'Apple Macbook',
-    price: '$1000',
-    image:
-      'https://www.slashgear.com/wp-content/uploads/2021/10/Apple_Events_-_Special_Event_Stream_-_Apple-77-1280x720.jpg',
-  },
-];
-
-const Products = () => {
+const Products = ({ products }) => {
+  const classes = productsStyles();
   return (
-    <main>
+    <main className={classes.content}>
+      <div className={classes.toolbar} />
       <Grid container justifyContent="center" spacing={4}>
         {/* To fetch later from an API */}
         {products.map((product) => {

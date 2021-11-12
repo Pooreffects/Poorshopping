@@ -4,8 +4,8 @@ export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
+    background: theme.palette.background.default,
   },
   root: {
     flexGrow: 1,

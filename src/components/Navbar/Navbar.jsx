@@ -23,7 +23,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
   const classes = navbarStyles();
   return (
     <>
@@ -37,7 +37,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Poorshopping Store"
-              height="50px"
+              height="40px"
               className={classes.image}
             />
             <div className={classes.title}>Poorshopping</div>
@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className={classes.grow}></div>
           <div className={classes.button}>
             <IconButton aria-label="Show cart items" color="inherit">
-              <StyledBadge badgeContent={2}>
+              <StyledBadge badgeContent={totalItems}>
                 {/* Icon styles overwritten in Global.css */}
                 <ShoppingCart fontSize="large" />
               </StyledBadge>

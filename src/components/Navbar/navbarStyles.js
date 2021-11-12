@@ -5,12 +5,13 @@ const drawerWidth = 0;
 export default makeStyles((theme) => ({
   appBar: {
     boxShadow: 'none',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    /* borderBottom: '1px solid rgba(0, 0, 0, 0.12)', */
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
-    background: 'linear-gradient(to top, #cb2d3e, #ef473a)',
+    background: 'linear-gradient(to bottom, #8e9eab, #eef2f3)',
+    /* background: 'linear-gradient(to top, #00bf8f, #001510)', */
   },
   titleContainer: {
     flexGrow: 1,
@@ -19,7 +20,7 @@ export default makeStyles((theme) => ({
     textDecoration: 'none',
     fontFamily: "'Mochiy Pop One', sans-serif",
     color: '#311b92',
-    fontWeight: '700',
+    fontWeight: '400',
   },
   image: {
     marginRight: '1rem',

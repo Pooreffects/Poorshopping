@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;500;600;700&family=Mochiy+Pop+One&display=swap');
 
 .MuiBadge-root {
-  color: #ffb74d;
+  color: whitesmoke;
 }
+
+*,
+body,
+html {
+  font-family: 'Mochiy Pop One', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #6441a5, #2a0845);
+}
+
+/* #9483a2 */

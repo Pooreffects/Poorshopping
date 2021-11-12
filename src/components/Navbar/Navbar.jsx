@@ -17,10 +17,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -1,
     top: 13,
-    border: `2px solid #311b92`,
-    background: '#311b92',
+    border: `2px solid #9483a2`,
+    background: '#9483a2', // #311b92
     padding: '0 4px',
-  },
+  }, //MuiSvgIcon-root
 }));
 
 const Navbar = ({ totalItems }) => {

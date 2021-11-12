@@ -3,13 +3,16 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   title: {
-    marginTop: '5%',
+    marginTop: '3%',
+    fontFamily: "'Mochiy Pop One', sans-serif",
+    color: 'whitesmoke',
   },
   emptyButton: {
-    minWidth: '50px',
+    minWidth: '110px',
     fontWeight: '700',
     borderRadius: '1rem',
-
+    backgroundColor: '#E97451',
+    color: 'whitesmoke',
     [theme.breakpoints.down('xs')]: {
       marginBottom: '5px',
     },
@@ -18,9 +21,9 @@ export default makeStyles((theme) => ({
     },
   },
   checkoutButton: {
-    minWidth: '100px',
-    backgroundColor: '#311b92',
-    color: '#ffb74d',
+    minWidth: '110px',
+    backgroundColor: '#9483a2',
+    color: 'whitesmoke',
     fontWeight: '700', // #ffb74d #311b92
     borderRadius: '1rem',
   },
@@ -28,9 +31,17 @@ export default makeStyles((theme) => ({
     textDecoration: 'none',
   },
   cardDetails: {
+    fontFamily: "'Mochiy Pop One', sans-serif",
     display: 'flex',
     marginTop: '10%',
     width: '100%',
     justifyContent: 'space-between',
+  },
+  sub: {
+    fontFamily: "'Mochiy Pop One', sans-serif",
+    color: '#9483a2',
+  },
+  total: {
+    color: 'whitesmoke',
   },
 }));

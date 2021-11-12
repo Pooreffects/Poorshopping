@@ -10,8 +10,8 @@ export default makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
-    background: 'linear-gradient(to bottom, #8e9eab, #eef2f3)',
-    /* background: 'linear-gradient(to top, #00bf8f, #001510)', */
+    background: 'linear-gradient(to top, #6441a5, #2a0845) ',
+    /* background: 'linear-gradient(to bottom, #8e9eab, #eef2f3)', */
   },
   titleContainer: {
     flexGrow: 1,
@@ -19,14 +19,15 @@ export default makeStyles((theme) => ({
     display: 'flex',
     textDecoration: 'none',
     fontFamily: "'Mochiy Pop One', sans-serif",
-    color: '#311b92',
+    /* color: '#E97451', */
+    color: 'whitesmoke',
     fontWeight: '400',
   },
   image: {
     marginRight: '1rem',
     borderRadius: '50%',
-    border: '4px solid #ffb74d',
-    boxShadow: '0 0 0.3em #311b92',
+    border: '4px solid #9483a2',
+    boxShadow: '0 0 0.3em #9483a2',
   },
   menuButton: {
     marginRight: theme.spacing(2),

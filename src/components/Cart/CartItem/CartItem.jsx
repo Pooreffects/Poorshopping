@@ -10,17 +10,17 @@ import {
 
 import cartItemStyles from './cartItemStyles';
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   const classes = cartItemStyles();
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardMedia
         image={item.image.url}
         alt={item.name}
         className={classes.media}
       />
       <CardContent className={classes.cardContent}>
-        <Typography className={classes.item} variant="h5">
+        <Typography className={classes.item} variant="h6">
           {item.name}
         </Typography>
         <Typography className={classes.itemPrice} variant="h6">
@@ -29,15 +29,27 @@ const CartItem = ({ item }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <div className={classes.buttons}>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => onUpdateCartQty(item.id, item.quantity - 1)}
+          >
             -
           </Button>
           <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => onUpdateCartQty(item.id, item.quantity + 1)}
+          >
             +
           </Button>
         </div>
-        <Button className={classes.removeButton} type="button">
+        <Button
+          className={classes.removeButton}
+          type="button"
+          onClick={() => onRemoveFromCart(item.id)}
+        >
           Remove
         </Button>
       </CardActions>

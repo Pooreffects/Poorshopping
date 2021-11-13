@@ -5,7 +5,8 @@ export default makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    background: theme.palette.background.default,
+    /* background: theme.palette.background.default, */
+    background: 'linear-gradient(to bottom, #6441a5, #2a0845)',
   },
   root: {
     flexGrow: 1,

@@ -12,6 +12,7 @@ import { ShoppingCart } from '@material-ui/icons';
 import logo from '../../assets/shopLogo.png';
 import navbarStyles from './navbarStyles';
 import { styled } from '@material-ui/core/styles';
+import { Link, useLocation } from 'react-router-dom';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -25,6 +26,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Navbar = ({ totalItems }) => {
   const classes = navbarStyles();
+  const location = useLocation();
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
@@ -33,6 +36,8 @@ const Navbar = ({ totalItems }) => {
             variant="h6"
             className={classes.titleContainer}
             color="inherit"
+            component={Link}
+            to="/"
           >
             <img
               src={logo}
@@ -43,14 +48,21 @@ const Navbar = ({ totalItems }) => {
             <div className={classes.title}>Poorshopping</div>
           </Typography>
           <div className={classes.grow}></div>
-          <div className={classes.button}>
-            <IconButton aria-label="Show cart items" color="inherit">
-              <StyledBadge badgeContent={totalItems}>
-                {/* Icon styles overwritten in Global.css */}
-                <ShoppingCart fontSize="large" />
-              </StyledBadge>
-            </IconButton>
-          </div>
+          {location.pathname === '/' && (
+            <div className={classes.button}>
+              <IconButton
+                component={Link}
+                to="cart"
+                aria-label="Show cart items"
+                color="inherit"
+              >
+                <StyledBadge badgeContent={totalItems}>
+                  {/* Icon styles overwritten in Global.css */}
+                  <ShoppingCart fontSize="large" />
+                </StyledBadge>
+              </IconButton>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </>

@@ -1,6 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
+  root: {
+    maxWidth: '100%',
+    height: '100%',
+  },
   item: {
     fontFamily: "'Mochiy Pop One', sans-serif",
     /* color: '#E97451', */
@@ -12,7 +16,8 @@ export default makeStyles(() => ({
     color: '#1b1b1b',
   },
   media: {
-    height: 420,
+    height: 200,
+    paddingTop: '56.25%', //16:9
   },
   cardContent: {
     display: 'flex',

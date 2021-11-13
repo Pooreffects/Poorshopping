@@ -19,9 +19,11 @@ const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
   const classes = checkoutStyles();
 
-  const Confirmation = () => {
-      
-  }
+  const Confirmation = () => (
+    <div>
+      <h3>Confirmation</h3>
+    </div>
+  );
 
   const Form = () => (activeStep === 0 ? <AddressForm /> : <PaymentForm />);
   return (

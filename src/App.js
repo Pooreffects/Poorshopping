@@ -58,7 +58,7 @@ const App = () => {
         ></Route>
         <Route
           exact
-          path="cart"
+          path="/cart"
           element={
             <Cart
               cart={cart}
@@ -69,7 +69,11 @@ const App = () => {
             />
           }
         ></Route>
-        <Route exact path="checkout" element={<Checkout />}></Route>
+        <Route
+          exact
+          path="/checkout"
+          element={<Checkout cart={cart} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

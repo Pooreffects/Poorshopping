@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   layout: {
     marginTop: '5%',
     width: 'auto',
-    height: '100vh',
+    height: '100%',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {

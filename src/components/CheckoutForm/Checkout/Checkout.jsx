@@ -8,11 +8,13 @@ import {
   CircularProgress,
   Divider,
   Button,
+  CssBaseline,
 } from '@material-ui/core';
 import checkoutStyles from './checkoutStyles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import { commerce } from '../../../lib/commerce';
+import { Link, useNavigate } from 'react-router-dom';
 
 const steps = ['Shipping address', 'Payment details'];
 
@@ -21,6 +23,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
   const classes = checkoutStyles();
+  const history = useNavigate();
 
   useEffect(() => {
     const generateToken = async () => {
@@ -30,7 +33,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         });
 
         setCheckoutToken(token);
-      } catch (error) {}
+      } catch (error) {
+        history('/');
+      }
     };
 
     generateToken();
@@ -44,11 +49,41 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     nextStep();
   };
 
-  const Confirmation = () => (
-    <div>
-      <h3>Confirmation</h3>
-    </div>
-  );
+  let Confirmation = () =>
+    order.customer ? (
+      <>
+        <div>
+          <Typography variant="h5">
+            Thank you for your purchase, {order.customer.firstname}{' '}
+            {order.customer.lastname}
+          </Typography>
+          <Divider className={classes.divider} />
+          <Typography variant="subtitle2">
+            Order ref: {order.customer_referance}
+          </Typography>
+        </div>
+        <br />
+        <Button component={Link} to="/" variant="outlined" type="button">
+          Back to Home
+        </Button>
+      </>
+    ) : (
+      <div className={classes.spinner}>
+        <CircularProgress />
+      </div>
+    );
+
+  if (error) {
+    Confirmation = () => (
+      <>
+        <Typography variant="h5">Error: {error}</Typography>
+        <br />
+        <Button component={Link} to="/" variant="outlined" type="button">
+          Back to Home
+        </Button>
+      </>
+    );
+  }
 
   const Form = () =>
     activeStep === 0 ? (
@@ -57,13 +92,14 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       <PaymentForm
         shippingData={shippingData}
         checkoutToken={checkoutToken}
-        nextStep={nextStep}
         backStep={backStep}
+        nextStep={nextStep}
         onCaptureCheckout={onCaptureCheckout}
       />
     );
   return (
     <>
+      {<CssBaseline />}
       <div className={classes.toolbar} />
       <main className={classes.layout}>
         <Paper className={classes.paper}>

@@ -68,7 +68,6 @@ const App = () => {
   }, []);
 
   return (
-    /* Need look up the V6 docs for proper routing */
     <BrowserRouter>
       <Navbar totalItems={cart.total_items} />
       <Routes>
@@ -76,7 +75,11 @@ const App = () => {
           exact
           path="/"
           element={
-            <Products products={products} onAddToCart={handleAddToCart} />
+            <Products
+              products={products}
+              onAddToCart={handleAddToCart}
+              handleUpdateCartQty={handleUpdateCartQty}
+            />
           }
         ></Route>
         <Route
@@ -98,8 +101,8 @@ const App = () => {
           element={
             <Checkout
               cart={cart}
-              order={order}
               onCaptureCheckout={handleCaptureCheckout}
+              order={order}
               error={errorMsg}
             />
           }

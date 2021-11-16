@@ -77,7 +77,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
-  }, []);
+  }, [checkoutToken.id]);
 
   /* Runs only when the shipping country changes, to display subs accordingly */
 
@@ -94,7 +94,7 @@ const AddressForm = ({ checkoutToken, next }) => {
         shippingCountry,
         shippingSubdivision
       );
-  }, [shippingSubdivision]);
+  }, [checkoutToken.id, shippingCountry, shippingSubdivision]);
 
   return (
     <>
@@ -120,7 +120,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <FormInput name="city" label="City" />
             <FormInput name="zip" label="Zip / Postal code" />
 
-            <Grid xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <InputLabel className={classes.countryInput}>
                 Shipping Country
               </InputLabel>
@@ -137,7 +137,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                 ))}
               </Select>
             </Grid>
-            <Grid xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <InputLabel className={classes.countryInput}>
                 Shipping Subdivision
               </InputLabel>
@@ -154,7 +154,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                 ))}
               </Select>
             </Grid>
-            <Grid xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <InputLabel className={classes.countryInput}>
                 Shipping Options
               </InputLabel>

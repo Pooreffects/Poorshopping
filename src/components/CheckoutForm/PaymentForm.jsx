@@ -13,30 +13,32 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 const PaymentForm = ({
   checkoutToken,
   shippingData,
+  nextStep,
   backStep,
   onCaptureCheckout,
-  nextStep,
 }) => {
   const handleSubmit = async (e, elements, stripe) => {
     e.preventDefault();
     if (!stripe || !elements) return;
+
     const cardElement = elements.getElement(CardElement);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
     });
+
     if (error) {
-      console.log(error);
+      console.log('[error]', error);
     } else {
       const orderData = {
         line_items: checkoutToken.live.line_items,
         customer: {
-          firstname: shippingData.firstname,
-          lastname: shippingData.lastname,
+          firstname: shippingData.firstName,
+          lastname: shippingData.lastName,
           email: shippingData.email,
         },
         shipping: {
-          name: 'Primary',
+          name: 'International',
           street: shippingData.address1,
           town_city: shippingData.city,
           county_state: shippingData.shippingSubdivision,
@@ -52,6 +54,7 @@ const PaymentForm = ({
         },
       };
       onCaptureCheckout(checkoutToken.id, orderData);
+
       nextStep();
     }
   };

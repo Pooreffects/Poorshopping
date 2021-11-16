@@ -4,10 +4,9 @@ import {
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
   Typography,
-} from '@material-ui/core';
+} from '@material-ui/core'; // you could add MenuItem and Menu for mobile
+
 import { ShoppingCart } from '@material-ui/icons';
 import logo from '../../assets/shopLogo.png';
 import navbarStyles from './navbarStyles';

@@ -130,9 +130,9 @@ const AddressForm = ({ checkoutToken, next }) => {
                 onChange={(e) => setShippingCountry(e.target.value)}
                 className={classes.countryInput}
               >
-                {countries.map((country) => (
-                  <MenuItem key={country.id} value={country.id}>
-                    {country.label}
+                {countries.map((item) => (
+                  <MenuItem key={item.id} value={item.id}>
+                    {item.label}
                   </MenuItem>
                 ))}
               </Select>
@@ -147,9 +147,9 @@ const AddressForm = ({ checkoutToken, next }) => {
                 onChange={(e) => setShippingSubdivision(e.target.value)}
                 className={classes.countryInput}
               >
-                {subdivisions.map((subdivision) => (
-                  <MenuItem key={subdivision.id} value={subdivision.id}>
-                    {subdivision.label}
+                {subdivisions.map((item) => (
+                  <MenuItem key={item.id} value={item.id}>
+                    {item.label}
                   </MenuItem>
                 ))}
               </Select>
@@ -164,9 +164,9 @@ const AddressForm = ({ checkoutToken, next }) => {
                 onChange={(e) => setShippingOption(e.target.value)}
                 className={classes.countryInput}
               >
-                {options.map((option) => (
-                  <MenuItem key={option.id} value={option.id}>
-                    {option.label}
+                {options.map((item) => (
+                  <MenuItem key={item.id} value={item.id}>
+                    {item.label}
                   </MenuItem>
                 ))}
               </Select>

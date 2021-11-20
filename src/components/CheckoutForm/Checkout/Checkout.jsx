@@ -34,12 +34,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
         setCheckoutToken(token);
       } catch (error) {
-        history('/');
+        if (activeStep !== steps.length) history('/');
       }
     };
 
     generateToken();
-  }, [cart, history]);
+  }, [activeStep, cart, history]);
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);

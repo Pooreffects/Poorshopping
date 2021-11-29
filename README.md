@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Poorshopping
+
+### Description
+An MVP for an e-commerce web application in React, Stripe, Commerce.js
+
+### Instructions on how to get it up and running: 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

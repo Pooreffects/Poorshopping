@@ -1,5 +1,8 @@
 # Poorshopping
 
+![Banner](public/Poorshopping.png)
+
+
 ### Description
 An MVP for an e-commerce web application in React, Stripe, Commerce.js
 
